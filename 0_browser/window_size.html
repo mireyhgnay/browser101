@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우 사이즈 표기</title>
+    <style>
+        .tag {
+            display: inline-block;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 40px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="tag">Window Size</div>
+
+    <script>
+        const tag = document.querySelector('.tag');
+
+        // 2. 함수 사용
+        function updateTag() {
+            tag.innerHTML = `
+                window.screen : ${window.screen.width}, ${window.screen.height} <br />
+                window.outer : ${window.outerWidth}, ${window.outerHeight} <br />
+                window.inner : ${window.innerWidth}, ${window.innerHeight} <br />
+                documentElement.clinetWidth : ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+            `;
+        }
+        window.addEventListener('resize', () => {
+            // 브라우저 사이즈가 변경될때만 호출되는 애
+            updateTag();
+        })
+        updateTag(); // 맨처음 로딩될 때 실행
+
+        /*
+        // resize 될 때 부터 값이 나오기 때문에 로딩될때부터 나오게 하기위해서 
+        // 1. addEventListenr resize 밖에다가 똑같이 코드를 넣으면 값은 나옴
+        // 하지만, 코드가 반복되기때문에 좋지 않음
+        tag.innerHTML = `
+            window.screen : ${window.screen.width}, ${window.screen.height}
+            window.outer : ${window.outerWidth}, ${window.outerHeight}
+            window.inner : ${window.innerWidth}, ${window.innerHeight}
+            documentElement.clinetWidth : ${window.documentElment.clientWidth}, ${window.documentElment.clientHeight}
+        `;
+        */
+    </script>
+</body>
+</html>
