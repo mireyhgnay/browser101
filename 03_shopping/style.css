@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+
+.ico_plus {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url('./img/ico_plus.svg');
+}
+
+.ico_delete {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url('./img/ico_delete.svg');
+}
